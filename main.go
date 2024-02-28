@@ -41,6 +41,18 @@ func main() {
 }
 
 func processMessage(sesssion *discordgo.Session, message *discordgo.MessageCreate) {
-	fmt.Print("here")
-	fmt.Print(message.Content)
+	fmt.Println("|")
+	fmt.Println(message.Activity)
+	fmt.Println(message.Application)
+	fmt.Println(message.Attachments)
+	fmt.Println(message.Author)
+	fmt.Println(message.ChannelID)
+	fmt.Println(message.Components)
+	fmt.Println(message.Content)
+	fmt.Println(message.EditedTimestamp)
+	fmt.Println(message.Embeds)
+	fmt.Println(message.Flags)
+	fmt.Println(message.GuildID)
+	fmt.Println(message.ID)
+	fmt.Println("|")
 }
