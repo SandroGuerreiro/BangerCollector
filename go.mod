@@ -8,6 +8,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/zmb3/spotify v1.3.0 // indirect
 	github.com/zmb3/spotify/v2 v2.4.0 // indirect
