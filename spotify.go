@@ -4,16 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/zmb3/spotify"
 )
 
-const (
-	redirectURI  = "http://localhost:8080/callback"
-	clientID     = "598654e5de9140c4897b8ad235595cc5"
-	clientSecret = "8f16007838a742dc878ddf6678c017d8"
-	playlistID   = "1G9sc90TdXmgtP3aQfR7UD"
-)
+var redirectURI string
+var clientID string
+var clientSecret string
+var playlistID spotify.ID
 
 var (
 	auth   = spotify.NewAuthenticator(redirectURI, spotify.ScopePlaylistModifyPublic, spotify.ScopePlaylistModifyPrivate, spotify.ScopeUserReadPrivate)
@@ -30,6 +29,11 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 
 func init() {
 	auth.SetAuthInfo(clientID, clientSecret)
+
+	redirectURI = os.Getenv("redirectURI")
+	clientID = os.Getenv("clientID")
+	clientSecret = os.Getenv("clientSecret")
+	playlistID = spotify.ID(os.Getenv("playlistID"))
 }
 
 func callbackHandler(w http.ResponseWriter, r *http.Request) {
